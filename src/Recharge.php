@@ -117,9 +117,7 @@ class Recharge
     private function query($params, $action = '')
     {
         $query = $this->params($params);
-
-        dump(iconv('utf-8', 'gbk', json_encode($query, 256)));
-       
+        
         $response = self::$httpClient->request('POST', $action, ['body' => iconv('utf-8', 'gbk', json_encode($query, 256))]);
 
         return json_decode(iconv('gbk', 'utf-8', $response->getBody()->getContents()), true);
