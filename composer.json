@@ -1,0 +1,23 @@
+{
+    "name": "zzbzh/szsr",
+    "description": "深圳硕软话费API接口",
+    "authors": [
+        {
+            "name": "段纪伟",
+            "email": "iejwduan@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zzbzh\\Szsr\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    }
+}
