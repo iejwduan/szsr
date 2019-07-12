@@ -1,6 +1,10 @@
 {
     "name": "zzbzh/szsr",
+    "type": "library",
+    "keywords": ["mobile recharge"],
     "description": "深圳硕软话费API接口",
+    "homepage": "https://github.com/iejwduan/szsr",
+    "license": "MIT",
     "authors": [
         {
             "name": "段纪伟",
@@ -13,11 +17,6 @@
     "autoload": {
         "psr-4": {
             "Zzbzh\\Szsr\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests"
         }
     }
 }
