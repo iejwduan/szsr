@@ -79,7 +79,7 @@ class Recharge
      */
     public function orderQuery($order_no)
     {
-        return $this->query(['customerorderno' => $order_no], 'queryorder.action');
+        return $this->query(['action' => 'CX', 'orderId' => $order_no], 'api');
     }
 
 
@@ -101,10 +101,10 @@ class Recharge
     private function params($params = [])
     {
         $data = [];
-        $data['sign'] = md5(iconv('utf-8', 'gbk', json_encode($params,256)).self::$merchantKey);
+        $data['sign'] = md5(iconv('utf-8', 'gbk', json_encode($params, 256)) . self::$merchantKey);
         $data['agentAccount'] = self::$merchantName;
         $data['busiBody'] = $params;
-        
+
         return $data;
     }
 
@@ -117,7 +117,7 @@ class Recharge
     private function query($params, $action = '')
     {
         $query = $this->params($params);
-        
+
         $response = self::$httpClient->request('POST', $action, ['body' => iconv('utf-8', 'gbk', json_encode($query, 256))]);
 
         return json_decode(iconv('gbk', 'utf-8', $response->getBody()->getContents()), true);
